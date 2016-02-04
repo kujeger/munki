@@ -138,10 +138,11 @@ def get_munki_client_cert_info():
                     break
         site_urls = []
         for key in ['SoftwareRepoURL', 'PackageURL', 'CatalogURL',
-                    'ManifestURL', 'IconURL', 'ClientResourceURL']:
+                    'ManifestURL', 'IconURL', 'ClientResourceURL',
+                    'CertificateWildcardURL']:
             url = munkicommon.pref(key)
             if url:
-                site_urls.append(url.rstrip('/') + '/')
+                site_urls.append(url)
         cert_info['site_urls'] = site_urls
     return cert_info
 
